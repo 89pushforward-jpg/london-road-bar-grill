@@ -123,17 +123,22 @@ header{position:sticky;top:0;z-index:60;background:rgba(13,13,13,.96);backdrop-f
 .hero .sub{margin:22px auto 34px;color:var(--muted);font-size:17px;max-width:560px}
 .hero-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
 /* hero slideshow — crossfading interior shots blending into the dark bg */
-.hero-slideshow{position:relative;height:min(64vh,580px);margin-top:70px;overflow:hidden;background:#0a0a0a}
+.hero-slideshow{position:relative;height:min(64vh,580px);margin-top:0;overflow:hidden;background:#0a0a0a}
 .hero-slideshow img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:heroFade 24s infinite}
 .hero-slideshow img.base{opacity:1;animation:none}
+.hero-slideshow img:not(.base){animation-duration:30s}
 .hero-slideshow img:nth-of-type(2){animation-delay:0s}
 .hero-slideshow img:nth-of-type(3){animation-delay:6s}
 .hero-slideshow img:nth-of-type(4){animation-delay:12s}
 .hero-slideshow img:nth-of-type(5){animation-delay:18s}
-@keyframes heroFade{0%{opacity:0}6%{opacity:1}27%{opacity:1}36%{opacity:0}100%{opacity:0}}
+.hero-slideshow img:nth-of-type(6){animation-delay:24s}
+@keyframes heroFade{0%{opacity:0}5%{opacity:1}22%{opacity:1}29%{opacity:0}100%{opacity:0}}
 .hero-slideshow::before{content:"";position:absolute;left:0;right:0;top:0;height:140px;background:linear-gradient(180deg,var(--bg) 0%,transparent 100%);z-index:2}
 .hero-slideshow::after{content:"";position:absolute;left:0;right:0;bottom:0;height:160px;background:linear-gradient(0deg,var(--bg) 0%,transparent 100%);z-index:2}
-.hero-stats{display:flex;justify-content:center;margin-top:0;border-top:1px solid var(--line)}
+.hero-stats{display:flex;justify-content:center;margin-top:68px;border-top:1px solid var(--line)}
+a.hero-stat{transition:background .15s}
+a.hero-stat:hover{background:rgba(255,107,26,.08)}
+a.hero-stat:hover span{color:var(--amber)}
 .hero-stat{flex:1;max-width:260px;padding:28px 16px;border-right:1px solid var(--line);text-align:center}
 .hero-stat:first-child{border-left:1px solid var(--line)}
 .hero-stat b{font-family:var(--font-display);font-size:34px;color:var(--white);display:block;line-height:1;font-weight:400}
@@ -314,27 +319,28 @@ footer a:hover{color:var(--amber)}
       <a class="btn btn-outline" href="#steaks">See the Steaks</a>
     </div>
   </div>
-  <div class="hero-slideshow" aria-hidden="true">
-    <img class="base" src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1600&q=70&auto=format&fit=crop" alt="">
-    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1600&q=70&auto=format&fit=crop" alt="" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&q=70&auto=format&fit=crop" alt="" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1600&q=70&auto=format&fit=crop" alt="" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=1600&q=70&auto=format&fit=crop" alt="" loading="lazy">
-  </div>
   <div class="container">
     <div class="hero-stats">
-      <div class="hero-stat"><b>4.4<i>★</i></b><span>950+ Google reviews</span></div>
+      <a class="hero-stat" href="https://www.google.com/maps/search/London+Rd+Bar+and+Grill+East+Grinstead" target="_blank" rel="noopener" title="Read our Google reviews"><b>4.4<i>★</i></b><span>950+ Google reviews →</span></a>
       <div class="hero-stat"><b>45 <i>days</i></b><span>dry-aged on site</span></div>
       <div class="hero-stat"><b>70 <i>yrs</i></b><span>butchery heritage</span></div>
       <div class="hero-stat"><b>12<i>am</i></b><span>cocktails Fri &amp; Sat</span></div>
     </div>
+  </div>
+  <div class="hero-slideshow" aria-hidden="true">
+    <img class="base" src="assets/interior.jpg" alt="">
+    <img src="assets/interior.jpg" alt="" loading="lazy">
+    <img src="assets/exterior.jpg" alt="" loading="lazy">
+    <img src="assets/bar.jpg" alt="" loading="lazy">
+    <img src="assets/steak.jpg" alt="" loading="lazy">
+    <img src="assets/ribs.jpg" alt="" loading="lazy">
   </div>
 </div>
 
 <!-- signature -->
 <section class="signature">
   <div class="container">
-    <div class="ph reveal"><img src="assets/mixed-grill.png" alt="Mixed grill platter at London Rd. Bar & Grill" loading="lazy"></div>
+    <div class="ph reveal"><img src="assets/dry-ager.jpg" alt="The on-site dry-ageing cabinet at London Rd. Bar & Grill" loading="lazy"></div>
     <div class="reveal">
       <div class="kicker"><span class="bulbs"><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span></span>The main event</div>
       <h2>Beef worth<br>the patience</h2>
@@ -474,7 +480,7 @@ footer a:hover{color:var(--amber)}
       <span class="review-score">4.4</span>
       <div>
         <div class="review-stars">★★★★½</div>
-        <div class="review-meta">950+ Google reviews · 4.8 on Facebook · <a href="https://www.tripadvisor.co.uk/Restaurant_Review-g499616-d11885671-Reviews-London_Rd_Bar_Grill-East_Grinstead_West_Sussex_England.html" target="_blank" rel="noopener" style="font-weight:700;color:var(--orange)">Read more →</a></div>
+        <div class="review-meta">950+ Google reviews · 4.8 on Facebook · <a href="https://www.google.com/maps/search/London+Rd+Bar+and+Grill+East+Grinstead" target="_blank" rel="noopener" style="font-weight:700;color:var(--orange)">Read them on Google Maps →</a></div>
       </div>
     </div>
     <div class="reviews-grid">
