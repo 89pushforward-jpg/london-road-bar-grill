@@ -122,7 +122,18 @@ header{position:sticky;top:0;z-index:60;background:rgba(13,13,13,.96);backdrop-f
 .hero h1 em{font-style:normal;color:var(--orange)}
 .hero .sub{margin:22px auto 34px;color:var(--muted);font-size:17px;max-width:560px}
 .hero-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
-.hero-stats{display:flex;justify-content:center;margin-top:68px;border-top:1px solid var(--line)}
+/* hero slideshow — crossfading interior shots blending into the dark bg */
+.hero-slideshow{position:relative;height:min(64vh,580px);margin-top:70px;overflow:hidden;background:#0a0a0a}
+.hero-slideshow img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:heroFade 24s infinite}
+.hero-slideshow img.base{opacity:1;animation:none}
+.hero-slideshow img:nth-of-type(2){animation-delay:0s}
+.hero-slideshow img:nth-of-type(3){animation-delay:6s}
+.hero-slideshow img:nth-of-type(4){animation-delay:12s}
+.hero-slideshow img:nth-of-type(5){animation-delay:18s}
+@keyframes heroFade{0%{opacity:0}6%{opacity:1}27%{opacity:1}36%{opacity:0}100%{opacity:0}}
+.hero-slideshow::before{content:"";position:absolute;left:0;right:0;top:0;height:140px;background:linear-gradient(180deg,var(--bg) 0%,transparent 100%);z-index:2}
+.hero-slideshow::after{content:"";position:absolute;left:0;right:0;bottom:0;height:160px;background:linear-gradient(0deg,var(--bg) 0%,transparent 100%);z-index:2}
+.hero-stats{display:flex;justify-content:center;margin-top:0;border-top:1px solid var(--line)}
 .hero-stat{flex:1;max-width:260px;padding:28px 16px;border-right:1px solid var(--line);text-align:center}
 .hero-stat:first-child{border-left:1px solid var(--line)}
 .hero-stat b{font-family:var(--font-display);font-size:34px;color:var(--white);display:block;line-height:1;font-weight:400}
@@ -302,6 +313,15 @@ footer a:hover{color:var(--amber)}
       <a class="btn btn-orange" href="https://londonroadeg.resos.com/booking" target="_blank" rel="noopener">Book a Table</a>
       <a class="btn btn-outline" href="#steaks">See the Steaks</a>
     </div>
+  </div>
+  <div class="hero-slideshow" aria-hidden="true">
+    <img class="base" src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1600&q=70&auto=format&fit=crop" alt="">
+    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1600&q=70&auto=format&fit=crop" alt="" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&q=70&auto=format&fit=crop" alt="" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1600&q=70&auto=format&fit=crop" alt="" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=1600&q=70&auto=format&fit=crop" alt="" loading="lazy">
+  </div>
+  <div class="container">
     <div class="hero-stats">
       <div class="hero-stat"><b>4.4<i>★</i></b><span>950+ Google reviews</span></div>
       <div class="hero-stat"><b>45 <i>days</i></b><span>dry-aged on site</span></div>
