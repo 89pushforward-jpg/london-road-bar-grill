@@ -122,20 +122,19 @@ header{position:sticky;top:0;z-index:60;background:rgba(13,13,13,.96);backdrop-f
 .hero h1 em{font-style:normal;color:var(--orange)}
 .hero .sub{margin:22px auto 34px;color:var(--muted);font-size:17px;max-width:560px}
 .hero-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
-/* hero slideshow — crossfading interior shots blending into the dark bg */
-.hero-slideshow{position:relative;height:min(64vh,580px);margin-top:0;overflow:hidden;background:#0a0a0a}
-.hero-slideshow img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:heroFade 24s infinite}
-.hero-slideshow img.base{opacity:1;animation:none}
-.hero-slideshow img:not(.base){animation-duration:30s}
-.hero-slideshow img:nth-of-type(2){animation-delay:0s}
-.hero-slideshow img:nth-of-type(3){animation-delay:6s}
-.hero-slideshow img:nth-of-type(4){animation-delay:12s}
-.hero-slideshow img:nth-of-type(5){animation-delay:18s}
-.hero-slideshow img:nth-of-type(6){animation-delay:24s}
-@keyframes heroFade{0%{opacity:0}5%{opacity:1}22%{opacity:1}29%{opacity:0}100%{opacity:0}}
-.hero-slideshow::before{content:"";position:absolute;left:0;right:0;top:0;height:140px;background:linear-gradient(180deg,var(--bg) 0%,transparent 100%);z-index:2}
-.hero-slideshow::after{content:"";position:absolute;left:0;right:0;bottom:0;height:160px;background:linear-gradient(0deg,var(--bg) 0%,transparent 100%);z-index:2}
-.hero-stats{display:flex;justify-content:center;margin-top:68px;border-top:1px solid var(--line)}
+/* hero photo — one big native-res interior shot blending into the dark bg */
+.hero-photo{position:relative;max-width:1200px;margin:70px auto 0;overflow:hidden}
+.hero-photo img{width:100%;max-height:600px;object-fit:cover;display:block}
+.hero-photo::before{content:"";position:absolute;left:0;right:0;top:0;height:110px;background:linear-gradient(180deg,var(--bg) 0%,transparent 100%);z-index:2}
+.hero-photo::after{content:"";position:absolute;left:0;right:0;bottom:0;height:130px;background:linear-gradient(0deg,var(--bg) 0%,transparent 100%);z-index:2}
+
+/* photo grid — small shots at native size, never upscaled */
+.gallery{padding:0 0 96px}
+.gallery-strip{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.gallery-strip img{height:185px;width:auto;display:block;border:1px solid var(--line)}
+.gallery-note{text-align:center;font-size:12.5px;color:var(--muted);margin-top:16px;letter-spacing:.5px}
+@media(max-width:560px){.gallery-strip img{height:130px}}
+.hero-stats{display:flex;justify-content:center;margin-top:0;border-top:1px solid var(--line)}
 a.hero-stat{transition:background .15s}
 a.hero-stat:hover{background:rgba(255,107,26,.08)}
 a.hero-stat:hover span{color:var(--amber)}
@@ -319,6 +318,9 @@ footer a:hover{color:var(--amber)}
       <a class="btn btn-outline" href="#steaks">See the Steaks</a>
     </div>
   </div>
+  <div class="hero-photo">
+    <img src="assets/interior.jpg" alt="Inside London Rd. Bar & Grill — the dining room under the light-studded ceiling" fetchpriority="high">
+  </div>
   <div class="container">
     <div class="hero-stats">
       <a class="hero-stat" href="https://www.google.com/maps/search/London+Rd+Bar+and+Grill+East+Grinstead" target="_blank" rel="noopener" title="Read our Google reviews"><b>4.4<i>★</i></b><span>950+ Google reviews →</span></a>
@@ -327,20 +329,12 @@ footer a:hover{color:var(--amber)}
       <div class="hero-stat"><b>12<i>am</i></b><span>cocktails Fri &amp; Sat</span></div>
     </div>
   </div>
-  <div class="hero-slideshow" aria-hidden="true">
-    <img class="base" src="assets/interior.jpg" alt="">
-    <img src="assets/interior.jpg" alt="" loading="lazy">
-    <img src="assets/exterior.jpg" alt="" loading="lazy">
-    <img src="assets/bar.jpg" alt="" loading="lazy">
-    <img src="assets/steak.jpg" alt="" loading="lazy">
-    <img src="assets/ribs.jpg" alt="" loading="lazy">
-  </div>
 </div>
 
 <!-- signature -->
 <section class="signature">
   <div class="container">
-    <div class="ph reveal"><img src="assets/dry-ager.jpg" alt="The on-site dry-ageing cabinet at London Rd. Bar & Grill" loading="lazy"></div>
+    <div class="ph reveal"><img src="assets/mixed-grill.png" alt="Mixed grill platter at London Rd. Bar & Grill" loading="lazy"></div>
     <div class="reveal">
       <div class="kicker"><span class="bulbs"><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span></span>The main event</div>
       <h2>Beef worth<br>the patience</h2>
@@ -350,6 +344,20 @@ footer a:hover{color:var(--amber)}
     </div>
   </div>
 </section>
+
+<!-- gallery -->
+<div class="gallery">
+  <div class="container">
+    <div class="gallery-strip reveal">
+      <img src="assets/exterior.jpg" alt="London Rd. Bar & Grill on London Road" loading="lazy">
+      <img src="assets/dry-ager.jpg" alt="The on-site dry-ageing cabinet" loading="lazy">
+      <img src="assets/bar.jpg" alt="The bar" loading="lazy">
+      <img src="assets/steak.jpg" alt="Steak, chips and peas" loading="lazy">
+      <img src="assets/ribs.jpg" alt="Baby back ribs with fries" loading="lazy">
+    </div>
+    <p class="gallery-note">📷 Photos from our guests on <a href="https://www.google.com/maps/search/London+Rd+Bar+and+Grill+East+Grinstead" target="_blank" rel="noopener" style="color:var(--amber);font-weight:700">Google Maps</a></p>
+  </div>
+</div>
 
 <!-- steaks -->
 <section id="steaks">
