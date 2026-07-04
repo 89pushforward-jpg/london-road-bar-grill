@@ -117,11 +117,11 @@ header{position:sticky;top:0;z-index:60;background:rgba(13,13,13,.96);backdrop-f
 /* hero — steak photo background, logo emblem + text on top */
 .hero{position:relative;text-align:center;overflow:hidden;isolation:isolate}
 .hero-bg{position:absolute;inset:0;z-index:-2;background:#0b0b0b url('assets/hero-steak.jpg') center/cover}
-.hero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:heroX 24s infinite}
+.hero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform-origin:center;animation:kenburns 15s infinite}
 .hero-bg img:nth-child(1){animation-delay:0s}
-.hero-bg img:nth-child(2){animation-delay:8s}
-.hero-bg img:nth-child(3){animation-delay:16s}
-@keyframes heroX{0%{opacity:0}3%{opacity:1}29%{opacity:1}35%{opacity:0}100%{opacity:0}}
+.hero-bg img:nth-child(2){animation-delay:5s}
+.hero-bg img:nth-child(3){animation-delay:10s}
+@keyframes kenburns{0%{opacity:0;transform:scale(1)}5%{opacity:1}30%{opacity:1;transform:scale(1.08)}35%{opacity:0;transform:scale(1.1)}100%{opacity:0;transform:scale(1.1)}}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(9,9,9,.86) 0%,rgba(9,9,9,.66) 40%,rgba(11,11,11,.82) 74%,var(--bg) 100%)}
 .hero .container{padding-top:74px;padding-bottom:86px}
 /* copper-framed square emblem (matches the footer badge) */
@@ -155,9 +155,12 @@ a.hero-stat:hover span{color:var(--amber)}
 /* signature / photo */
 .signature{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .signature .container{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:60px;align-items:center}
-.signature .ph{position:relative}
-.signature .ph img{width:100%;aspect-ratio:4/4.6;object-fit:cover}
-.signature .ph::after{content:"";position:absolute;inset:14px;border:1px solid rgba(255,166,43,.45);pointer-events:none}
+.signature .ph{position:relative;aspect-ratio:4/4.6;overflow:hidden;background:#111 url('assets/interior-1.jpg') center/cover}
+.signature .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform-origin:center;animation:kenburns 15s infinite}
+.signature .ph img:nth-of-type(1){animation-delay:0s}
+.signature .ph img:nth-of-type(2){animation-delay:5s}
+.signature .ph img:nth-of-type(3){animation-delay:10s}
+.signature .ph::after{content:"";position:absolute;inset:14px;border:1px solid rgba(255,166,43,.45);pointer-events:none;z-index:2}
 .signature h2{margin-bottom:16px}
 .signature p{color:var(--ink-soft);margin-bottom:14px;font-size:15.5px}
 .signature .foot{margin-top:22px;font-family:var(--font-display);font-size:14px;letter-spacing:3px;text-transform:uppercase;color:var(--orange)}
@@ -348,7 +351,11 @@ footer a:hover{color:var(--amber)}
 <!-- signature -->
 <section class="signature">
   <div class="container">
-    <div class="ph reveal"><img src="assets/beef-mural.jpg" alt="The butcher's-cuts mural inside London Rd. Bar & Grill" loading="lazy"></div>
+    <div class="ph reveal" aria-hidden="true">
+      <img src="assets/interior-1.jpg" alt="Inside London Rd. Bar & Grill — the dining room" loading="lazy">
+      <img src="assets/interior-2.jpg" alt="The bar" loading="lazy">
+      <img src="assets/interior-3.jpg" alt="A table in the restaurant" loading="lazy">
+    </div>
     <div class="reveal">
       <div class="kicker"><span class="bulbs"><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span></span>The main event</div>
       <h2>Beef worth<br>the patience</h2>
