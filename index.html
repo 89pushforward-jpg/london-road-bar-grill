@@ -125,10 +125,8 @@ header{position:sticky;top:0;z-index:60;background:rgba(13,13,13,.96);backdrop-f
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(9,9,9,.86) 0%,rgba(9,9,9,.66) 40%,rgba(11,11,11,.82) 74%,var(--bg) 100%)}
 .hero .container{padding-top:74px;padding-bottom:86px}
 /* copper-framed square emblem (matches the footer badge) */
-.emblem{display:inline-block;padding:4px;border-radius:4px;background:linear-gradient(150deg,#eec39a 0%,#c47f3e 32%,#7c4c22 58%,#dca465 82%,#a4692f 100%);box-shadow:0 24px 64px rgba(0,0,0,.65)}
-.emblem-inner{background:#0b0b0b;border-radius:2px;width:clamp(228px,26vw,286px);aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:24px}
-.emblem-inner img{height:clamp(60px,7.5vw,84px);width:auto;display:block}
-.emblem-inner .estd{font-family:var(--font-display);font-size:11px;letter-spacing:5px;color:#c98f52;text-transform:uppercase}
+.emblem{display:inline-block;line-height:0}
+.emblem img{width:clamp(200px,24vw,256px);height:auto;display:block;box-shadow:0 24px 64px rgba(0,0,0,.6)}
 .hero .bulbs.top{justify-content:center;display:flex;margin:30px auto 34px}
 .hero h1{font-size:clamp(34px,5vw,58px);max-width:820px;margin:0 auto;color:var(--white);text-shadow:0 2px 20px rgba(0,0,0,.55)}
 .hero h1 em{font-style:normal;color:var(--orange)}
@@ -323,10 +321,7 @@ footer a:hover{color:var(--amber)}
   </div>
   <div class="container">
     <div class="emblem">
-      <div class="emblem-inner">
-        <img src="assets/logo-white.png" alt="London Rd. Bar & Grill">
-        <div class="estd">Established 2016</div>
-      </div>
+      <img src="assets/logo-square.jpg" alt="London Rd. Bar & Grill — Established 2016">
     </div>
     <div class="bulbs top" aria-hidden="true">
       <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
