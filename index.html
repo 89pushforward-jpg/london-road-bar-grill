@@ -116,14 +116,19 @@ header{position:sticky;top:0;z-index:60;background:rgba(13,13,13,.96);backdrop-f
 
 /* hero — steak photo background, logo emblem + text on top */
 .hero{position:relative;text-align:center;overflow:hidden;isolation:isolate}
-.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.hero-bg{position:absolute;inset:0;z-index:-2;background:#0b0b0b url('assets/hero-steak.jpg') center/cover}
+.hero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:heroX 24s infinite}
+.hero-bg img:nth-child(1){animation-delay:0s}
+.hero-bg img:nth-child(2){animation-delay:8s}
+.hero-bg img:nth-child(3){animation-delay:16s}
+@keyframes heroX{0%{opacity:0}3%{opacity:1}29%{opacity:1}35%{opacity:0}100%{opacity:0}}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(9,9,9,.86) 0%,rgba(9,9,9,.66) 40%,rgba(11,11,11,.82) 74%,var(--bg) 100%)}
 .hero .container{padding-top:74px;padding-bottom:86px}
-/* copper-framed square emblem */
+/* copper-framed square emblem (matches the footer badge) */
 .emblem{display:inline-block;padding:4px;border-radius:4px;background:linear-gradient(150deg,#eec39a 0%,#c47f3e 32%,#7c4c22 58%,#dca465 82%,#a4692f 100%);box-shadow:0 24px 64px rgba(0,0,0,.65)}
-.emblem-inner{background:#0b0b0b;border-radius:2px;padding:30px 40px 22px}
-.emblem-inner img{height:clamp(66px,9vw,98px);width:auto;display:block;margin:0 auto}
-.emblem-inner .estd{margin-top:16px;font-family:var(--font-display);font-size:11px;letter-spacing:5px;color:#c98f52;text-transform:uppercase}
+.emblem-inner{background:#0b0b0b;border-radius:2px;width:clamp(228px,26vw,286px);aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:24px}
+.emblem-inner img{height:clamp(60px,7.5vw,84px);width:auto;display:block}
+.emblem-inner .estd{font-family:var(--font-display);font-size:11px;letter-spacing:5px;color:#c98f52;text-transform:uppercase}
 .hero .bulbs.top{justify-content:center;display:flex;margin:30px auto 34px}
 .hero h1{font-size:clamp(34px,5vw,58px);max-width:820px;margin:0 auto;color:var(--white);text-shadow:0 2px 20px rgba(0,0,0,.55)}
 .hero h1 em{font-style:normal;color:var(--orange)}
@@ -185,11 +190,16 @@ a.hero-stat:hover span{color:var(--amber)}
 @media(max-width:860px){.banner-grid{grid-template-columns:1fr}}
 
 /* bar strip */
-.bar-strip{background:#000;color:#fff;padding:84px 0;text-align:center;border-bottom:1px solid var(--line)}
-.bar-strip .bulbs{justify-content:center;display:flex;margin:0 auto 28px}
-.bar-strip h2{max-width:720px;margin:0 auto}
+.bar-strip{background:#000;color:#fff;border-bottom:1px solid var(--line);overflow:hidden}
+.bar-strip .container{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.bar-strip .txt{padding:84px 0;text-align:left}
+.bar-strip .bulbs{justify-content:flex-start;display:flex;margin:0 0 24px}
+.bar-strip h2{max-width:none;margin:0}
 .bar-strip h2 em{font-style:normal;color:var(--amber)}
-.bar-strip p{color:var(--muted);margin:16px auto 30px;max-width:520px}
+.bar-strip p{color:var(--muted);margin:16px 0 30px;max-width:460px}
+.bar-strip .ph{position:relative;align-self:stretch;display:flex}
+.bar-strip .ph img{width:100%;max-height:560px;object-fit:cover;display:block;border-left:1px solid var(--line)}
+@media(max-width:860px){.bar-strip .container{grid-template-columns:1fr;gap:0}.bar-strip .ph{order:-1}.bar-strip .ph img{max-height:300px;border-left:none;border-bottom:1px solid var(--line)}.bar-strip .txt{padding:52px 0}}
 
 /* ordering */
 .ordering .container{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:56px;align-items:start}
@@ -303,7 +313,11 @@ footer a:hover{color:var(--amber)}
 
 <!-- hero -->
 <div class="hero">
-  <img class="hero-bg" src="assets/hero-steak.jpg" alt="" aria-hidden="true" fetchpriority="high">
+  <div class="hero-bg" aria-hidden="true">
+    <img src="assets/hero-steak.jpg" alt="" fetchpriority="high">
+    <img src="assets/hero-venue.jpg" alt="" loading="lazy">
+    <img src="assets/hero-grill.jpg" alt="" loading="lazy">
+  </div>
   <div class="container">
     <div class="emblem">
       <div class="emblem-inner">
@@ -439,12 +453,15 @@ footer a:hover{color:var(--amber)}
 <!-- bar strip -->
 <section class="bar-strip" id="bar">
   <div class="container">
-    <div class="bulbs" aria-hidden="true">
-      <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+    <div class="txt">
+      <div class="bulbs" aria-hidden="true">
+        <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+      </div>
+      <h2>New York-style cocktails,<br><em>East Grinstead postcode.</em></h2>
+      <p>Meticulously crafted cocktails, house beer and a proper wine list — served until midnight on Fridays and Saturdays.</p>
+      <a class="btn btn-orange" href="https://londonroadeg.resos.com/booking" target="_blank" rel="noopener">Book a Table</a>
     </div>
-    <h2>New York-style cocktails,<br><em>East Grinstead postcode.</em></h2>
-    <p>Meticulously crafted cocktails, house beer and a proper wine list — served until midnight on Fridays and Saturdays.</p>
-    <a class="btn btn-orange" href="https://londonroadeg.resos.com/booking" target="_blank" rel="noopener">Book a Table</a>
+    <div class="ph"><img src="assets/cocktail.jpg" alt="A mojito at the bar of London Rd. Bar & Grill" loading="lazy"></div>
   </div>
 </section>
 
