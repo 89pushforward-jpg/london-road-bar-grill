@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="booking.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -220,6 +221,8 @@ a.hero-stat:hover span{color:var(--amber)}
 .form-success{display:none;background:rgba(87,194,132,.12);border:1px solid rgba(87,194,132,.4);color:var(--green);padding:15px 17px;font-weight:600;font-size:14px;margin-top:16px}
 @media(max-width:960px){.ordering .container{grid-template-columns:minmax(0,1fr);gap:40px}}
 @media(max-width:560px){.form-grid{grid-template-columns:1fr}.form-card{padding:26px 20px}}
+/* booking widget — dark/orange theme */
+#booking.bw{--bw-accent:#ff6b1a;--bw-accent-ink:#111;--bw-ink:#f2f2f2;--bw-muted:#8f8f8f;--bw-line:#2a2a2a;--bw-card:#141414;--bw-free:#57c284;--bw-some:#ffa62b;--bw-full:#e07b6d;border:1px solid var(--line)}
 
 /* reviews */
 .reviews{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -306,7 +309,7 @@ footer a:hover{color:var(--amber)}
     </nav>
     <div class="nav-cta">
       <a class="btn btn-phone" href="tel:+441342315223">01342 315223</a>
-      <a class="btn btn-orange" href="https://londonroadeg.resos.com/booking" target="_blank" rel="noopener">Book a Table</a>
+      <a class="btn btn-orange" href="#book">Book a Table</a>
       <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -329,7 +332,7 @@ footer a:hover{color:var(--amber)}
     <h1>Dry-aged. Chargrilled.<br><em>Done properly.</em></h1>
     <p class="sub">Premium grass-fed British beef from Smithfield Market, dry-aged on site and grilled over charcoal — with a New York-style bar that pours until midnight.</p>
     <div class="hero-actions">
-      <a class="btn btn-orange" href="https://londonroadeg.resos.com/booking" target="_blank" rel="noopener">Book a Table</a>
+      <a class="btn btn-orange" href="#book">Book a Table</a>
       <a class="btn btn-outline" href="#steaks">See the Steaks</a>
     </div>
   </div>
@@ -461,39 +464,27 @@ footer a:hover{color:var(--amber)}
       </div>
       <h2>New York-style cocktails,<br><em>East Grinstead postcode.</em></h2>
       <p>Meticulously crafted cocktails, house beer and a proper wine list — served until midnight on Fridays and Saturdays.</p>
-      <a class="btn btn-orange" href="https://londonroadeg.resos.com/booking" target="_blank" rel="noopener">Book a Table</a>
+      <a class="btn btn-orange" href="#book">Book a Table</a>
     </div>
     <div class="ph"><img src="assets/cocktail.jpg" alt="A mojito at the bar of London Rd. Bar & Grill" loading="lazy"></div>
   </div>
 </section>
 
-<!-- ordering -->
-<section class="ordering" id="order">
+<!-- booking -->
+<section class="ordering" id="book">
   <div class="container">
     <div class="ordering-info reveal">
-      <div class="kicker"><span class="bulbs"><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span></span>New — order for collection</div>
-      <h2>Steak night,<br>at home</h2>
-      <p>The new site brings ordering in-house: collection orders straight to the kitchen, no third-party commission eating the margin. Uber Eats stays for delivery — but your regulars order direct.</p>
+      <div class="kicker"><span class="bulbs"><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span></span>Book a table</div>
+      <h2>See a free table,<br>book it in seconds</h2>
+      <p>Pick a night, choose a time that's actually free, and we'll confirm your table by email — no phone tag, no waiting to hear back.</p>
       <div class="ordering-points">
-        <div class="ordering-point"><span class="n">01</span><span>Guest picks dishes and a collection time online</span></div>
-        <div class="ordering-point"><span class="n">02</span><span>Order prints in the kitchen — you confirm with one tap</span></div>
-        <div class="ordering-point"><span class="n">03</span><span>Guest gets a confirmation email with pickup time</span></div>
+        <div class="ordering-point"><span class="n">01</span><span>Choose your day and a free time slot — availability is live</span></div>
+        <div class="ordering-point"><span class="n">02</span><span>We confirm from the kitchen with one tap</span></div>
+        <div class="ordering-point"><span class="n">03</span><span>Your table locks out instantly — you get a confirmation email</span></div>
       </div>
-      <p style="margin-top:18px;font-size:13.5px;color:var(--muted)">Also on <a href="https://www.ubereats.com/gb/store/london-road-bar-&amp;-grill/58EB8oLXSMO-EptZGm8TRA" target="_blank" rel="noopener" style="font-weight:700;color:var(--orange)">Uber Eats</a> for delivery.</p>
+      <p style="margin-top:18px;font-size:13px;color:var(--muted)">Parties of 6+ or a special occasion? <a href="tel:+441342315223" style="font-weight:700;color:var(--orange)">Give us a call</a>. &nbsp;·&nbsp; Staff: <a href="kitchen.html" target="_blank" style="font-weight:700;color:var(--orange)">bookings dashboard →</a></p>
     </div>
-    <form class="form-card reveal" id="orderForm">
-      <h3>Collection order — demo</h3>
-      <div class="form-grid">
-        <div><label for="oName">Name</label><input id="oName" type="text" placeholder="John Smith" required></div>
-        <div><label for="oPhone">Phone</label><input id="oPhone" type="tel" placeholder="07__ ______" required></div>
-        <div><label for="oTime">Collection time</label>
-          <select id="oTime"><option>18:00</option><option>18:30</option><option>19:00</option><option>19:30</option><option>20:00</option><option>20:30</option></select></div>
-        <div><label for="oEmail">Email</label><input id="oEmail" type="email" placeholder="you@email.com"></div>
-        <div class="full"><label for="oItems">Your order</label><textarea id="oItems" placeholder="e.g. 2× Ribeye 12oz (medium rare), 1× truffle fries, 1× Biscoff cheesecake"></textarea></div>
-        <button type="submit" class="btn btn-orange full" style="width:100%">Send Order Request</button>
-      </div>
-      <div class="form-success" id="orderSuccess">✓ Order request sent — the kitchen will confirm your collection time by text or email. (Demo — the live system takes payment and prints to the kitchen.)</div>
-    </form>
+    <div id="booking" class="bw reveal"></div>
   </div>
 </section>
 
@@ -592,7 +583,7 @@ footer a:hover{color:var(--amber)}
 <!-- sticky mobile action bar -->
 <div class="mobile-bar">
   <a class="call" href="tel:+441342315223"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 2 .7 2.9a2 2 0 01-.5 2.1L8 10a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.5c.9.3 1.9.6 2.9.7a2 2 0 011.7 2z"/></svg>Call</a>
-  <a class="book" href="https://londonroadeg.resos.com/booking" target="_blank" rel="noopener">Book</a>
+  <a class="book" href="#book">Book</a>
   <a class="menu" href="#steaks">Menu</a>
 </div>
 
@@ -600,11 +591,6 @@ footer a:hover{color:var(--amber)}
 const burger=document.getElementById('burger'),navLinks=document.getElementById('navLinks');
 burger.addEventListener('click',()=>navLinks.classList.toggle('open'));
 navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
-document.getElementById('orderForm').addEventListener('submit',e=>{
-  e.preventDefault();
-  document.getElementById('orderSuccess').style.display='block';
-  e.target.querySelector('button[type=submit]').textContent='Request Sent ✓';
-});
 (function(){
   const hours={0:[12,22],1:null,2:[12,23],3:[12,23],4:[12,23],5:[12,24],6:[12,24]};
   const now=new Date(),d=now.getDay(),h=now.getHours()+now.getMinutes()/60;
@@ -623,6 +609,20 @@ document.getElementById('orderForm').addEventListener('submit',e=>{
 })();
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+<script src="booking.js"></script>
+<script>
+BookingWidget.init({
+  el:'#booking',
+  business:'London Rd. Bar & Grill',
+  storageKey:'londonrd-bookings',
+  slotMinutes:30,
+  capacityPerSlot:6,
+  partyMax:12,
+  daysAhead:14,
+  hours:{0:[16,21.5],1:null,2:[16,22],3:[16,22],4:[16,22],5:[16,23],6:[12,23]},
+  labels:{book:'Book your table',party:'Guests',note:'Special requests? (optional)'}
+});
 </script>
 </body>
 </html>

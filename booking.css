@@ -1,0 +1,48 @@
+/* BookingWidget styles — themable via CSS variables set on the widget container:
+   --bw-accent (buttons/selected), --bw-accent-ink (text on accent),
+   --bw-ink, --bw-muted, --bw-line, --bw-card (panel bg), --bw-free, --bw-some, --bw-full */
+.bw{--bw-accent:#1a6dff;--bw-accent-ink:#fff;--bw-ink:#16202b;--bw-muted:#6b7a89;--bw-line:#e3e9f0;--bw-card:#fff;--bw-free:#17a05c;--bw-some:#e8a13d;--bw-full:#d64541;
+  background:var(--bw-card);border-radius:20px;padding:30px;color:var(--bw-ink)}
+.bw *{box-sizing:border-box;font-family:inherit}
+.bw-head h3{font-size:24px;margin:0 0 4px}
+.bw-head p{font-size:14px;color:var(--bw-muted);margin:0 0 16px}
+.bw-legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;font-weight:600;color:var(--bw-muted);margin-bottom:16px}
+.bw-legend span{display:inline-flex;align-items:center;gap:6px}
+.bw-dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.bw-dot.bw-free{background:var(--bw-free)}
+.bw-dot.bw-some{background:var(--bw-some)}
+.bw-dot.bw-full{background:var(--bw-full)}
+.bw-days{display:flex;gap:8px;overflow-x:auto;padding-bottom:10px;scrollbar-width:thin}
+.bw-day{flex:0 0 64px;border:1.5px solid var(--bw-line);background:transparent;border-radius:12px;padding:9px 4px;text-align:center;cursor:pointer;transition:.15s;color:var(--bw-ink)}
+.bw-day b{display:block;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--bw-muted)}
+.bw-day span{display:block;font-size:21px;font-weight:800;line-height:1.2}
+.bw-day small{display:block;font-size:10.5px;color:var(--bw-muted)}
+.bw-day:hover:not(:disabled){border-color:var(--bw-accent)}
+.bw-day.bw-sel{background:var(--bw-accent);border-color:var(--bw-accent)}
+.bw-day.bw-sel b,.bw-day.bw-sel small,.bw-day.bw-sel span{color:var(--bw-accent-ink)}
+.bw-day.bw-closed{opacity:.35;cursor:not-allowed}
+.bw-slots h4,.bw-form h4{font-size:15px;margin:18px 0 12px}
+.bw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px}
+.bw-slot{border:1.5px solid var(--bw-line);background:transparent;border-radius:10px;padding:9px 4px;font-weight:800;font-size:14px;cursor:pointer;transition:.15s;position:relative;color:var(--bw-ink)}
+.bw-slot small{display:block;font-size:10px;font-weight:600;color:var(--bw-muted)}
+.bw-slot.bw-free{border-color:color-mix(in srgb,var(--bw-free) 45%,transparent)}
+.bw-slot.bw-some{border-color:color-mix(in srgb,var(--bw-some) 65%,transparent)}
+.bw-slot.bw-some small{color:var(--bw-some)}
+.bw-slot.bw-full{opacity:.45;cursor:not-allowed;text-decoration:line-through}
+.bw-slot.bw-full small{text-decoration:none}
+.bw-slot:hover:not(:disabled){border-color:var(--bw-accent)}
+.bw-slot.bw-sel{background:var(--bw-accent);border-color:var(--bw-accent);color:var(--bw-accent-ink)}
+.bw-slot.bw-sel small{color:var(--bw-accent-ink)}
+.bw-form label{display:block;font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.9px;color:var(--bw-muted);margin:10px 0}
+.bw-form input,.bw-form select{width:100%;padding:12px 13px;border-radius:10px;border:1.5px solid var(--bw-line);font-size:15px;margin-top:5px;background:var(--bw-card);color:var(--bw-ink)}
+.bw-form input:focus,.bw-form select:focus{outline:none;border-color:var(--bw-accent)}
+.bw-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.bw-submit{width:100%;margin-top:14px;padding:14px;border:none;border-radius:12px;background:var(--bw-accent);color:var(--bw-accent-ink);font-weight:800;font-size:15px;cursor:pointer}
+.bw-submit:hover{filter:brightness(.92)}
+.bw-hint{font-size:12.5px;color:var(--bw-muted);margin-top:10px;text-align:center}
+.bw-card{border:1.5px solid var(--bw-line);border-radius:14px;padding:22px;margin-top:18px;text-align:center}
+.bw-check{font-size:34px;display:block;margin-bottom:8px}
+.bw-card h4{margin:0 0 6px}
+.bw-card p{font-size:14px;color:var(--bw-muted)}
+.bw-mail{text-align:left;background:color-mix(in srgb,var(--bw-accent) 7%,var(--bw-card));border:1px dashed color-mix(in srgb,var(--bw-accent) 40%,transparent);border-radius:10px;padding:12px 14px;font-size:12.5px;margin-top:10px;line-height:1.5}
+@media(max-width:560px){.bw{padding:20px 16px}.bw-row{grid-template-columns:1fr}}
